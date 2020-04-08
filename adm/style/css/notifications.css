@@ -1,0 +1,81 @@
+.studio-notifications {
+	width: 400px;
+	cursor: default;
+}
+
+.studio-notifications li {
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.studio-notifications .notification-block {
+	padding: 0;
+}
+
+.notification-block .avatar {
+	float: left;
+	width: 70px;
+	height: auto;
+	max-height: 70px;
+	margin: 5px;
+}
+
+.notification-text {
+	height: 80px;
+	margin-left: 70px;
+	padding: 4px 8px;
+}
+
+.notification-title,
+.notification-forum,
+.notification-reason,
+.notification-reference {
+	font-size: 12px;
+	line-height: 1.5;
+}
+
+.notification-time {
+	font-size: 11px;
+	font-style: italic;
+	line-height: 1.2;
+	color: #bcbcbc;
+}
+
+.studio-notifications .mark-read {
+	float: right;
+	display: inline-block;
+	padding: 4px 8px 4px 12px;
+}
+
+.studio-notifications .mark-read i {
+	color: var(--green);
+}
+
+.studio-notifications .studio-row a {
+	color: rgba(0, 0, 0, 0.6);
+	padding: 8px;
+}
+
+.no-notifications {
+	line-height: 64px;
+	height: 64px;
+}
+
+.notification-trigger {
+	position: relative;
+}
+
+.notification-trigger .badge {
+	font-size: 11px;
+	line-height: 20px;
+	text-align: center;
+	background-color: var(--red);
+	border-radius: 50%;
+	box-shadow: 0 0 6px 0 var(--red);
+	color: var(--white);
+	position: absolute;
+	bottom: 100%;
+	left: 100%;
+	width: 20px;
+	height: 20px;
+	transform: translate(-50%, 50%);
+}

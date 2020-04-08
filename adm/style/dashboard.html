@@ -1,0 +1,287 @@
+{% INCLUDECSS '@phpbbstudio_admindashboard/css/dashboard.css' %}
+
+<span class="studio-dash-toggle studio-bg-dark-blue">
+	<i class="fa fa-cog fa-spin"></i>
+</span>
+
+<aside class="studio-dash studio-right-sidebar studio-scrollbar">
+	<form method="post" action="{{ U_STUDIO_ADMIN_DASHBOARD }}" data-ajax="true">
+		<input name="action" type="hidden" value="dashboard">
+
+		<div>
+			<h3>{{ lang('ACP_INDEX') }}</h3>
+
+			<dl>
+				<dt>
+					<label for="detach_qa_input">{{ lang('STUDIO_DASHBOARD_DETACH_QA') }}</label>
+				</dt>
+				<dd>
+					<label>
+						<input id="detach_qa_input" name="detach_qa" type="checkbox" value="1"{{ S_STUDIO_DETACH_QA ? ' checked' }} data-setting="detach_qa">
+						<i class="icon fa-fw" aria-hidden="true"></i>
+					</label>
+				</dd>
+			</dl>
+			<dl>
+				<dt>
+					<label for="display_qa_input">{{ lang('STUDIO_DASHBOARD_DISPLAY_QA') }}</label>
+				</dt>
+				<dd>
+					<label>
+						<input id="display_qa_input" name="display_qa" type="checkbox" value="1"{{ S_STUDIO_DISPLAY_QA ? ' checked' }}>
+						<i class="icon fa-fw" aria-hidden="true"></i>
+					</label>
+				</dd>
+			</dl>
+			<dl>
+				<dt>
+					<label for="display_notes_input">{{ lang('STUDIO_DASHBOARD_DISPLAY_NOTES') }}</label>
+				</dt>
+				<dd>
+					<label>
+						<input id="display_notes_input" name="display_notes" type="checkbox" value="1"{{ S_STUDIO_DISPLAY_NOTES ? ' checked' }}>
+						<i class="icon fa-fw" aria-hidden="true"></i>
+					</label>
+				</dd>
+			</dl>
+			<dl>
+				<dt>
+					<label for="display_logs_input">{{ lang('STUDIO_DASHBOARD_DISPLAY_LOGS') }}</label>
+				</dt>
+				<dd>
+					<label>
+						<input id="display_logs_input" name="display_logs" type="checkbox" value="1"{{ S_STUDIO_DISPLAY_LOGS ? ' checked' }}>
+						<i class="icon fa-fw" aria-hidden="true"></i>
+					</label>
+				</dd>
+			</dl>
+			<dl>
+				<dt>
+					<label for="display_users_input">{{ lang('STUDIO_DASHBOARD_DISPLAY_USERS') }}</label>
+				</dt>
+				<dd>
+					<label>
+						<input id="display_users_input" name="display_users" type="checkbox" value="1"{{ S_STUDIO_DISPLAY_USERS ? ' checked' }}>
+						<i class="icon fa-fw" aria-hidden="true"></i>
+					</label>
+				</dd>
+			</dl>
+			<dl>
+				<dt>
+					<label for="display_stats_input">{{ lang('STUDIO_DASHBOARD_DISPLAY_STATS') }}</label>
+				</dt>
+				<dd>
+					<label>
+						<input id="display_stats_input" name="display_stats" type="checkbox" value="1"{{ S_STUDIO_DISPLAY_STATS ? ' checked' }}>
+						<i class="icon fa-fw" aria-hidden="true"></i>
+					</label>
+				</dd>
+			</dl>
+			<dl>
+				<dt>
+					<label for="remodel_stats_input">{{ lang('STUDIO_DASHBOARD_REMODEL_STATS') }}</label>
+				</dt>
+				<dd>
+					<label>
+						<input id="remodel_stats_input" name="remodel_stats" type="checkbox" value="1"{{ S_STUDIO_REMODEL_STATS ? ' checked' }}>
+						<i class="icon fa-fw" aria-hidden="true"></i>
+					</label>
+				</dd>
+			</dl>
+		</div>
+	</form>
+</aside>
+
+<div class="{% if not S_STUDIO_DISPLAY_STATS %}studio-stats-hidden hidden{% elseif not S_STUDIO_REMODEL_STATS %}hidden{% else %}studio-stats-hidden{% endif %}" id="remodel_stats">
+	<div class="studio-row">
+		<div>
+			<fieldset class="studio-stats studio-bg-purple-orange">
+				<div class="studio-row">
+					<div>
+						<i class="icon fa-comment-o fa-fw" aria-hidden="true"></i>
+						<h5>{{ lang('POSTS') }}</h5>
+					</div>
+					<div>
+						<strong title="{{ lang('NUMBER_POSTS') }}">{{ TOTAL_POSTS }}</strong>
+						<p>
+							<span title="{{ lang('POSTS_PER_DAY') }}">{{ lang('STUDIO_DASHBOARD_PER_DAY', POSTS_PER_DAY) }}</span>
+						</p>
+					</div>
+				</div>
+			</fieldset>
+		</div>
+		<div>
+			<fieldset class="studio-stats studio-bg-orange-light">
+				<div class="studio-row">
+					<div>
+						<i class="icon fa-file-text-o fa-fw" aria-hidden="true"></i>
+						<h5>{{ lang('TOPICS') }}</h5>
+					</div>
+					<div>
+						<strong title="{{ lang('NUMBER_TOPICS') }}">{{ TOTAL_TOPICS }}</strong>
+						<p>
+							<span title="{{ lang('TOPICS_PER_DAY') }}">{{ lang('STUDIO_DASHBOARD_PER_DAY', TOPICS_PER_DAY) }}</span>
+						</p>
+					</div>
+				</div>
+			</fieldset>
+		</div>
+		<div>
+			<fieldset class="studio-stats studio-bg-purple-indigo">
+				<div class="studio-row">
+					<div>
+						<i class="icon fa-user-o fa-fw" aria-hidden="true"></i>
+						<h5>{{ lang('USERS') }}</h5>
+					</div>
+					<div>
+						<strong title="{{ lang('NUMBER_USERS') }}">{{ TOTAL_USERS }}</strong>
+						<p>
+							<span title="{{ lang('USERS_PER_DAY') }}">{{ lang('STUDIO_DASHBOARD_PER_DAY', USERS_PER_DAY) }}</span>
+						</p>
+					</div>
+				</div>
+			</fieldset>
+		</div>
+		<div>
+			<fieldset class="studio-stats studio-bg-green-cyan">
+				<div class="studio-row">
+					<div>
+						<i class="icon fa-paperclip fa-fw" aria-hidden="true"></i>
+						<h5>{{ lang('ATTACHMENTS') }}</h5>
+					</div>
+					<div>
+						<strong title="{{ lang('NUMBER_FILES') }}">{{ TOTAL_FILES }}</strong>
+						<p>
+							<span title="{{ lang('FILES_PER_DAY') }}">{{ lang('STUDIO_DASHBOARD_PER_DAY', FILES_PER_DAY) }}</span>
+							{% if TOTAL_ORPHAN > 0 %}
+								<a href="{{ U_ATTACH_ORPHAN }}" title="{{ lang('MORE_INFORMATION') }}">{{ lang('STUDIO_DASHBOARD_ORPHANS', TOTAL_ORPHAN) }}</a>
+							{% else %}
+								<span title="{{ lang('NUMBER_ORPHAN') }}">{{ lang('STUDIO_DASHBOARD_ORPHANS', TOTAL_ORPHAN) }}</span>
+							{% endif %}
+							<span title="{{ lang('UPLOAD_DIR_SIZE') }}">{{ UPLOAD_DIR_SIZE }}</span>
+						</p>
+					</div>
+				</div>
+			</fieldset>
+		</div>
+	</div>
+	<div class="studio-row">
+		<div>
+			<fieldset class="studio-stats studio-bg-dark-blue">
+				<div class="studio-row">
+					<div>
+						<i class="icon fa-television fa-fw" aria-hidden="true"></i>
+						<h5>{{ lang('STUDIO_DASHBOARD_BOARD') }}</h5>
+					</div>
+					<div>
+						<p>
+							<span title="{{ lang('BOARD_STARTED') }}">{{ START_DATE }}</span>
+							{% if S_VERSIONCHECK %}
+								<a href="{{ U_VERSIONCHECK }}" title="{{ lang('MORE_INFORMATION') }}">
+									<strong>{{ BOARD_VERSION }}</strong>
+								</a>
+								<a href="{{ U_VERSIONCHECK_FORCE }}" title="{{ lang('VERSIONCHECK_FORCE_UPDATE') }}">
+									<i class="icon fa-refresh fa-fw" aria-hidden="true"></i>
+								</a>
+							{% endif %}
+							<span title="{{ lang('PHP_VERSION') }}">{{ PHP_VERSION_INFO }}</span>
+						</p>
+					</div>
+				</div>
+			</fieldset>
+		</div>
+		<div>
+			<fieldset class="studio-stats studio-bg-red">
+				<div class="studio-row">
+					<div>
+						<i class="icon fa-database fa-fw" aria-hidden="true"></i>
+						<h5>{{ lang('ACP_CAT_DATABASE') }}</h5>
+					</div>
+					<div>
+						<p>
+							<span title="{{ lang('DATABASE_SIZE') }}">{{ DBSIZE }}</span>
+							<span title="{{ lang('DATABASE_SERVER_INFO') }}">{{ DATABASE_INFO }}</span>
+						</p>
+					</div>
+				</div>
+			</fieldset>
+		</div>
+		<div>
+			<fieldset class="studio-stats studio-bg-indigo">
+				<div class="studio-row">
+					<div>
+						<i class="icon fa-file-zip-o fa-fw" aria-hidden="true"></i>
+						<h5>{{ lang('STUDIO_DASHBOARD_GZIP') }}</h5>
+					</div>
+					<div>
+						<p>
+							<span title="{{ lang('GZIP_COMPRESSION') }}">{{ lang(GZIP_COMPRESSION == lang('ON') ? 'ENABLED' : 'DISABLED') }}</span>
+						</p>
+					</div>
+				</div>
+			</fieldset>
+		</div>
+		<div>
+			<fieldset class="studio-stats studio-bg-blue">
+				<div class="studio-row">
+					<div>
+						<i class="icon fa-address-book-o fa-fw" aria-hidden="true"></i>
+						<h5>{{ lang('STUDIO_DASHBOARD_AVATARS') }}</h5>
+					</div>
+					<div>
+						<p>
+							<span title="{{ lang('AVATAR_DIR_SIZE') }}">{{ AVATAR_DIR_SIZE }}</span>
+						</p>
+					</div>
+				</div>
+			</fieldset>
+		</div>
+	</div>
+</div>
+
+<div class="studio-row">
+	<div{% if not S_STUDIO_DISPLAY_NOTES %} class="hidden"{% endif %} id="display_notes">
+		<fieldset>
+			<legend>{{ lang('STUDIO_DASHBOARD_ADMIN_NOTES') }}</legend>
+
+			{% if S_STUDIO_ADMIN_NOTES_EDIT %}
+				<form method="post" action="{{ U_ACTION }}">
+					<textarea class="inputbox full" id="admin_notes" name="admin_notes" placeholder="">{{ STUDIO_ADMIN_NOTES_EDIT }}</textarea>
+					<fieldset class="quick">
+						<input id="submit_notes" name="submit_notes" type="submit" value="{{ lang('SUBMIT') }}">
+					</fieldset>
+				</form>
+			{% else %}
+				<div>{{ STUDIO_ADMIN_NOTES }}</div>
+				<div class="studio-actions">
+					<a href="{{ U_ACTION ~ '&edit_notes=1' }}"><i class="icon fa-pencil fa-fw"></i></a>
+					<a href="{{ U_STUDIO_ADMIN_DASHBOARD ~ '&dashboard=display_notes' }}" data-ajax="studio_dashboard"><i class="icon fa-times fa-fw"></i></a>
+				</div>
+			{% endif %}
+		</fieldset>
+	</div>
+
+	<div{% if not S_STUDIO_DISPLAY_QA %} class="hidden"{% endif %} id="display_qa">
+		<fieldset>
+			<legend>{{ lang('ACP_QUICK_ACCESS') }}</legend>
+
+			<ul class="fa-ul">
+				{% for category in l_block1 %}
+					{% for subcategory in category.l_block2 if subcategory.L_TITLE == lang('ACP_QUICK_ACCESS') %}
+						{% for item in subcategory.l_block3 %}
+							<li>
+								<i class="fa fa-li fa-angle-double-right"></i>
+								<a href="{{ item.U_TITLE }}">{{ item.L_TITLE }}</a>
+							</li>
+						{% endfor %}
+					{% endfor %}
+				{% endfor %}
+			</ul>
+
+			<div class="studio-actions">
+				{% if U_STUDIO_ADMIN_QA %}<a href="{{ U_STUDIO_ADMIN_QA }}"><i class="icon fa-pencil fa-fw"></i></a>{% endif %}
+				<a href="{{ U_STUDIO_ADMIN_DASHBOARD ~ '&dashboard=display_qa' }}" data-ajax="studio_dashboard"><i class="icon fa-times fa-fw"></i></a>
+			</div>
+		</fieldset>
+	</div>
+</div>

@@ -1,0 +1,95 @@
+<aside class="studio-settings studio-right-sidebar studio-scrollbar">
+	<form method="post" action="{{ U_STUDIO_ADMIN_DASHBOARD }}">
+		<input name="action" type="hidden" value="settings">
+
+		<div>
+			<h3>{{ lang('STUDIO_DASHBOARD_HEADER') }}</h3>
+
+			<dl>
+				<dt>
+					<label for="header_fixed">{{ lang('STUDIO_DASHBOARD_FIXED') }}</label>
+				</dt>
+				<dd>
+					<label>
+						<input id="header_fixed" name="header_fixed" type="checkbox" value="1" data-obj="header" data-func="fixed"{{ S_STUDIO_HEADER_FIXED ? ' checked' }}>
+						<i class="icon fa-fw" aria-hidden="true"></i>
+					</label>
+				</dd>
+			</dl>
+			<dl>
+				<dt>
+					<label for="header_colour">{{ lang('STUDIO_DASHBOARD_COLOUR') }}</label>
+				</dt>
+				{% for batch in T_STUDIO_COLOURS|default([])|batch(5) %}
+					<dd>
+						{% for colour in batch %}
+							<label>
+								<input class="studio-settings-colour"{% if loop.first and loop.parent.loop.first %} id="header_colour"{% endif %} name="header_colour" type="radio" value="{{ colour }}" data-obj="header" data-func="colour">
+								<i class="studio-bg-{{ colour }}"></i>
+							</label>
+						{% endfor %}
+					</dd>
+				{% endfor %}
+			</dl>
+		</div>
+
+		<div>
+			<h3>{{ lang('STUDIO_DASHBOARD_SIDEBAR') }}</h3>
+
+			<dl>
+				<dt>
+					<label for="sidebar_fixed">{{ lang('STUDIO_DASHBOARD_FIXED') }}</label>
+				</dt>
+				<dd>
+					<label>
+						<input id="sidebar_fixed" name="sidebar_fixed" type="checkbox" value="1" data-obj="sidebar" data-func="fixed"{{ S_STUDIO_SIDEBAR_FIXED ? ' checked' }}>
+						<i class="icon fa-fw" aria-hidden="true"></i>
+					</label>
+				</dd>
+			</dl>
+			<dl>
+				<dt>
+					<label for="sidebar_colour">{{ lang('STUDIO_DASHBOARD_COLOUR') }}</label>
+				</dt>
+				{% for batch in T_STUDIO_COLOURS|default([])|batch(5) %}
+					<dd>
+						{% for colour in batch %}
+							<label>
+								<input class="studio-settings-colour"{% if loop.first and loop.parent.loop.first %} id="sidebar_colour"{% endif %} name="sidebar_colour" type="radio" value="{{ colour }}" data-obj="sidebar" data-func="colour">
+								<i class="studio-bg-{{ colour }}"></i>
+							</label>
+						{% endfor %}
+					</dd>
+				{% endfor %}
+			</dl>
+			<dl>
+				<dt>
+					<label for="sidebar_corner">{{ lang('STUDIO_DASHBOARD_CORNER') }}</label>
+				</dt>
+				{% for corner in T_STUDIO_CORNERS %}
+					<dd>
+						<label>
+							<span>{{ corner|capitalize }}</span>
+							<input class="studio-settings-radio"{% if loop.first %} id="sidebar_corner"{% endif %} name="sidebar_corner" type="radio" value="{{ corner }}" data-obj="sidebar" data-func="corner"{{ corner == T_STUDIO_SIDEBAR_CORNER ? ' checked' }}>
+							<i class="icon fa-fw" aria-hidden="true"></i>
+						</label>
+					</dd>
+				{% endfor %}
+			</dl>
+			<dl>
+				<dt>
+					<label for="sidebar_size">{{ lang('STUDIO_DASHBOARD_SIZE') }}</label>
+				</dt>
+				{% for size in T_STUDIO_SIZES %}
+					<dd>
+						<label>
+							<span>{{ size|capitalize }}</span>
+							<input class="studio-settings-radio"{% if loop.first %} id="sidebar_size"{% endif %} name="sidebar_size" type="radio" value="{{ size }}" data-obj="sidebar" data-func="size"{{ size == T_STUDIO_SIDEBAR_SIZE ? ' checked' }}>
+							<i class="icon fa-fw" aria-hidden="true"></i>
+						</label>
+					</dd>
+				{% endfor %}
+			</dl>
+		</div>
+	</form>
+</aside>

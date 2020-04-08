@@ -1,0 +1,46 @@
+<ul id="notification_list">
+	{% for notification in notifications %}
+		<li class="{{ notification.STYLING }}{{ notification.UNREAD ? ' bg2' }}">
+			{% if notification.UNREAD %}
+				<a href="{{ notification.U_MARK_READ }}" class="mark-read icon-mark" data-ajax="notification.mark_read" title="{{ lang('MARK_READ') }}">
+					<i class="icon fa-check-square-o fa-fw" aria-hidden="true"></i>
+				</a>
+			{% endif %}
+
+			{% if notification.URL %}
+				<a class="notification-block"
+				   href="{{ notification.UNREAD ? notification.U_MARK_READ : notification.URL }}"
+				   {% if notification.UNREAD %} data-real-url="{{ notification.URL }}"{% endif %}>
+			{% endif %}
+
+			{% if notification.AVATAR %}{{ notification.AVATAR }}{% else %}<img class="avatar" src="{{ ADMIN_ROOT_PATH }}images/no_avatar.gif" alt="" />{% endif %}
+			<div class="notification-text">
+				<div class="notification-title">{{ notification.FORMATTED_TITLE }}</div>
+				{% if notification.REFERENCE %}<div class="notification-reference">{{ notification.REFERENCE }}</div>{% endif %}
+				{% if notification.FORUM %}<div class="notification-forum">{{ notification.FORUM }}</div>{% endif %}
+				{% if notification.REASON %}<div class="notification-reason">{{ notification.REASON }}</div>{% endif %}
+				<time class="notification-time">{{ notification.TIME }}</time>
+			</div>
+
+			{% if notification.URL %}</a>{% endif %}
+		</li>
+	{% else %}
+		<li class="no-notifications error centered-text">
+			{{ lang('NO_NOTIFICATIONS') }}
+		</li>
+	{% endfor %}
+</ul>
+
+<div class="studio-row centered-text">
+	<a href="{{ U_NOTIFICATION_SETTINGS }}" title="{{ lang('SETTINGS') }}">
+		<i class="icon fa-cog fa-fw" aria-hidden="true"></i>
+	</a>
+	<a href="{{ U_VIEW_ALL_NOTIFICATIONS }}" title="{{ lang('SEE_ALL') }}">
+		<i class="icon fa-eye fa-fw" aria-hidden="true"></i>
+	</a>
+	{% if NOTIFICATIONS_COUNT %}
+		<a id="mark_all_notifications" href="{{ U_MARK_ALL_NOTIFICATIONS }}" data-ajax="notification.mark_all_read" title="{{ lang('MARK_ALL_READ') }}">
+			<i class="icon fa-check fa-fw" aria-hidden="true"></i>
+		</a>
+	{% endif %}
+</div>

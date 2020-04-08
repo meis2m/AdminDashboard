@@ -1,0 +1,72 @@
+#content h1,
+#content h2 {
+	font-size: 1.5rem;
+	color: var(--text-colour);
+}
+
+fieldset:not(.display-options):not(.submit-buttons):not(.quick) {
+	background: var(--white);
+	border: none;
+	border-radius: 2px;
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+	position: relative;
+	margin: 1rem 0;
+	padding: 24px;
+}
+
+fieldset > legend {
+	font-size: 18px;
+	font-weight: normal;
+	line-height: 32px;
+	color: var(--text-colour);
+	position: absolute;
+	top: 10px;
+	display: block;
+	height: 32px;
+	margin: 0;
+	padding: 0;
+}
+
+fieldset:not(.submit-buttons) > legend + * {
+	margin-top: 24px;
+}
+
+table,
+.table1,
+.table2 {
+	font-size: 15px;
+	border-spacing: 0;
+	border-collapse: collapse;
+}
+
+table tr {
+	background: var(--white);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+table tr:last-child {
+	border-bottom: none;
+}
+
+table th {
+	font-size: 14px;
+	text-transform: none;
+	background: var(--white);
+	border-top: none;
+	border-bottom: 1px solid var(--phpbb);
+	color: var(--text-colour);
+	padding: 8px 12px;
+}
+
+table th[style="width: 50px;"] {
+	width: 100px !important;
+}
+
+table td {
+	padding: 8px 12px;
+}
+
+table.zebra-table tbody tr:nth-child(odd) { background: var(--bg-colour); }
+table.zebra-table tbody tr:nth-child(even) { background: var(--white); }
+table tbody tr:hover,
+table.zebra-table tbody tr:hover { background: rgba(0, 0, 0, 0.05); }

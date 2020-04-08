@@ -1,0 +1,145 @@
+/** Boxes */
+.errorbox,
+.errorbox.notice,
+.successbox,
+.warningbox {
+	border: none;
+	border-radius: 2px;
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.errorbox { background: #f44336; }
+.errorbox.notice { background: #2196f3; }
+.successbox { background: #4caf50; }
+.warningbox { background: #ff9800; }
+
+.errorbox h3,
+.successbox h3,
+.warningbox h3 {
+	font-size: 18px;
+}
+
+.errorbox p,
+.successbox p,
+.warningbox p {
+	font-size: 15px;
+}
+
+.errorbox a,
+.errorbox a:link,
+.errorbox a:hover,
+.errorbox a:visited,
+.successbox a,
+.successbox a:link,
+.successbox a:hover,
+.successbox a:visited,
+.warningbox a,
+.warningbox a:link,
+.warningbox a:hover,
+.warningbox a:visited {
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+.errorbox a,
+.errorbox a:link,
+.errorbox a:hover,
+.errorbox a:visited {
+	color: #a41919;
+}
+
+.errorbox a:hover {
+	color: #721111;
+}
+
+.errorbox.notice a,
+.errorbox.notice a:link,
+.errorbox.notice a:hover,
+.errorbox.notice a:visited {
+	color: #0d47a1;
+}
+
+.errorbox.notice a:hover {
+	color: #093170;
+}
+
+.successbox a,
+.successbox a:link,
+.successbox a:hover,
+.successbox a:visited {
+	color: #1b5e20;
+}
+
+.successbox a:hover {
+	color: #124116;
+}
+
+.warningbox a,
+.warningbox a:link,
+.warningbox a:hover,
+.warningbox a:visited {
+	color: #bf360c;
+}
+
+.warningbox a:hover {
+	color: #852508;
+}
+
+/** Alerts */
+.phpbb_alert {
+	background: var(--white);
+	border: none;
+	border-radius: 4px;
+	top: 45%;
+	left: 50%;
+	margin: 0;
+	padding: 32px;
+	transform: translate(-50%, -50%);
+}
+
+.alert_title,
+#phpbb_confirm > .alert_text > h3 {
+	font-size: 27px;
+	text-align: center;
+	color: rgba(0, 0, 0, 0.65);
+	margin: 0 0 16px;
+	padding: 0;
+}
+
+#phpbb_alert > .alert_text,
+#phpbb_confirm > .alert_text > p {
+	font-size: 16px;
+	text-align: center;
+	color: rgba(0, 0, 0, 0.64);
+	margin: 0;
+	padding: 0;
+}
+
+.phpbb_alert .submit-buttons {
+	margin: 32px 0 0;
+	padding: 0;
+}
+
+.phpbb_alert .alert_close {
+	font-family: FontAwesome;
+	font-size: 24px;
+	font-weight: bold;
+	line-height: 18px;
+	text-align: center;
+	background: none;
+	color: rgba(0, 0, 0, 0.1);
+	width: 18px;
+	height: 18px;
+	margin: 0;
+	padding: 0;
+	transition: all 0.3s ease-in-out;
+}
+
+.phpbb_alert .alert_close:before {
+	content: "\f00d";
+}
+
+.phpbb_alert .alert_close:hover {
+	color: var(--red);
+	transform: rotate(360deg);
+}

@@ -1,0 +1,54 @@
+<header class="studio-header{{ S_STUDIO_HEADER_FIXED ? ' studio-header-fixed' }}{{ T_STUDIO_HEADER_COLOUR ? ' studio-bg-' ~ T_STUDIO_HEADER_COLOUR }}">
+	<label class="studio-show" for="studio-sidebar-label">
+		<i class="icon fa-bars fa-fw" aria-hidden="true"></i>
+	</label>
+
+	<form class="studio-search responsive-hide" method="post" action="{{ U_STUDIO_ADMIN_DASHBOARD }}">
+		<i class="icon fa-search fa-fw" aria-hidden="true"></i>
+		<input id="search" name="search" type="text" placeholder="{{ lang('STUDIO_DASHBOARD_SEARCH_ACP') ~ lang('ELLIPSIS') }}">
+	</form>
+
+	<nav class="studio-nav">
+		<a class="responsive-hide" href="{{ U_INDEX }}">
+			<i class="icon fa-home fa-fw" aria-hidden="true"></i>
+		</a>
+
+		{% if S_NOTIFICATIONS_DISPLAY %}
+			<div class="studio-dropdown responsive-hide">
+				<div id="notification_list_button" class="notification-trigger">
+					<i class="icon fa-bell fa-fw" aria-hidden="true"></i>
+					<strong class="badge{{ not NOTIFICATIONS_COUNT ? ' hidden' }}">{{ NOTIFICATIONS_COUNT }}</strong>
+				</div>
+
+				<div class="studio-dropdown-contents">
+					<div class="studio-panel studio-notifications">
+						{{ include('@phpbbstudio_admindashboard/notifications.html') }}
+					</div>
+				</div>
+			</div>
+		{% endif %}
+
+		<div class="studio-dropdown">
+			{% if USER_AVATAR %}
+				{{ USER_AVATAR }}
+			{% else %}
+				<i class="icon fa-user-circle fa-fw" aria-hidden="true"></i>
+			{% endif %}
+
+			<div class="studio-dropdown-contents">
+				<div class="studio-panel">
+					<ul>
+						<li>{{ USERNAME_COLOUR }}</li>
+						<li><a href="{{ U_LOGOUT }}">{{ lang('LOGOUT') }}</a></li>
+						<li><a href="{{ U_ADM_LOGOUT }}">{{ lang('ADM_LOGOUT') }}</a></li>
+						<li class="responsive-show"><a href="{{ U_INDEX }}">{{ lang('FORUM_INDEX') }}</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="studio-settings-toggle">
+			<i class="icon fa-outdent fa-fw" aria-hidden="true"></i>
+		</div>
+	</nav>
+</header>

@@ -1,0 +1,47 @@
+{%- macro studio_icon(title) -%}
+	{% apply spaceless %}
+		{% set icons_flip = {
+			'cogs': lang('ACP_CAT_GENERAL'),
+				'search': lang('ACP_ADMIN_DASHBOARD_SEARCH'),
+				'television': lang('ACP_INDEX'),
+				'rocket': lang('ACP_QUICK_ACCESS'),
+				'cog': lang('ACP_BOARD_CONFIGURATION'),
+				'commenting': lang('ACP_CLIENT_COMMUNICATION'),
+				'industry': lang('ACP_SERVER_CONFIGURATION'),
+			'th-list': lang('ACP_CAT_FORUMS'),
+				'leanpub': lang('ACP_MANAGE_FORUMS'),
+				'map-signs': lang('ACP_FORUM_BASED_PERMISSIONS'),
+			'pencil': lang('ACP_CAT_POSTING'),
+				'comments-o': lang('ACP_MESSAGES'),
+				'paperclip': lang('ACP_ATTACHMENTS'),
+			'users': lang('ACP_CAT_USERGROUP'),
+				'user': lang('ACP_CAT_USERS'),
+				'users': lang('ACP_GROUPS'),
+				'gavel': lang('ACP_USER_SECURITY'),
+			'key': lang('ACP_CAT_PERMISSIONS'),
+				'key': lang('ACP_PERMISSIONS'),
+				'globe': lang('ACP_GLOBAL_PERMISSIONS'),
+				'map-signs': lang('ACP_FORUM_BASED_PERMISSIONS'),
+				'tag': lang('ACP_PERMISSION_ROLES'),
+				'eye': lang('ACP_PERMISSION_MASKS'),
+			'sliders': lang('ACP_CAT_CUSTOMISE'),
+				'puzzle-piece': lang('ACP_EXTENSION_MANAGEMENT'),
+				'paint-brush': lang('ACP_STYLE_MANAGEMENT'),
+				'language': lang('ACP_LANGUAGE'),
+			'wrench': lang('ACP_CAT_MAINTENANCE'),
+				'history': lang('ACP_FORUM_LOGS'),
+				'database': lang('ACP_CAT_DATABASE'),
+			'modx': lang('ACP_CAT_SYSTEM'),
+				'magic': lang('ACP_AUTOMATION'),
+				'tasks': lang('ACP_GENERAL_TASKS'),
+				'cubes': lang('ACP_MODULE_MANAGEMENT'),
+			'puzzle-piece': lang('ACP_CAT_DOT_MODS'),
+		} %}
+
+		{% set icons = {} %}
+
+		{% for key, value in icons_flip %}{% set icons = icons|merge({(value|trim|lower): key}) %}{% endfor %}
+
+		{% if attribute(icons, title|trim|lower) is defined %}{{ attribute(icons, title|trim|lower) }}{% elseif title == 'Extension management' %}puzzle-piece{% else %}circle-o{% endif %}
+	{% endapply %}
+{%- endmacro -%}

@@ -1,0 +1,47 @@
+body *,
+body *:after,
+body *:before {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/** Reset margin and padding */
+html,
+body,
+#wrap,
+#page-header,
+#page-body,
+#page-footer,
+#content,
+#tabs,
+#menu,
+#main,
+.main {
+	float: none;
+	margin: 0;
+	padding: 0;
+}
+
+#acp {
+	background: none;
+	border: none;
+	border-radius: 0;
+	box-shadow: none;
+	top: unset;
+	margin: 0;
+	padding: 0;
+}
+
+/* Hide header, tabs and menu */
+#page-header,
+#tabs,
+#menu {
+	display: none;
+	width: 0;
+	height: 0;
+}
+
+fieldset dt {
+	border-right: none;
+}

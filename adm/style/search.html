@@ -1,0 +1,67 @@
+{% include 'overall_header.html' %}
+
+<main class="studio-search-results clearfix">
+	<section class="column1">
+		<h2 class="centered-text">{{ lang('SETTINGS') }}</h2>
+
+		{% for mode in results %}
+			<fieldset>
+				<legend><a href="{{ mode.U_VIEW }}">{{ mode.TITLE }}</a></legend>
+
+				<ul>
+					{% for setting in mode.settings %}
+						<li class="studio-search-result">
+							<a href="{{ setting.U_VIEW }}">
+								<strong>{{ setting.TITLE }}</strong>
+								{% if setting.EXPLAIN %}<span>{{ setting.EXPLAIN }}</span>{% endif %}
+							</a>
+						</li>
+					{% endfor %}
+				</ul>
+			</fieldset>
+		{% else %}
+			<fieldset>
+				<legend>{{ lang('STUDIO_DASHBOARD_RESULTS_NO') }}</legend>
+
+				<p class="error"><strong>{{ lang('STUDIO_DASHBOARD_RESULTS_NONE') }}</strong></p>
+				<p>{{ lang('STUDIO_DASHBOARD_RESULTS_NOTE') }}</p>
+			</fieldset>
+		{% endfor %}
+	</section>
+
+	<section class="column2">
+		<h2 class="centered-text">{{ lang('STUDIO_DASHBOARD_MODULES') }}</h2>
+
+		<fieldset>
+			<legend>{{ lang('STUDIO_DASHBOARD_MODULES_MATCHING') }}</legend>
+
+			{% for category in STUDIO_MODULES %}
+				{% if loop.first %}<ul>{% endif %}
+					<li>
+						<a href="{{ category.U_VIEW }}">{{ category.TITLE }}</a>
+
+						{% for subcategory in category.subcategories %}
+							{% if loop.first %}<ul>{% endif %}
+								<li>
+									<a href="{{ subcategory.U_VIEW }}">{{ subcategory.TITLE }}</a>
+
+									{% for item in subcategory.items %}
+										{% if loop.first %}<ul>{% endif %}
+											<li>
+												<a href="{{ item.U_VIEW }}">{{ item.TITLE }}</a>
+											</li>
+										{% if loop.last %}</ul>{% endif %}
+									{% endfor %}
+								</li>
+							{% if loop.last %}</ul>{% endif %}
+						{% endfor %}
+					</li>
+				{% if loop.last %}</ul>{% endif %}
+			{% else %}
+				<p class="error"><strong>{{ lang('STUDIO_DASHBOARD_MODULES_NONE') }}</strong></p>
+			{% endfor %}
+		</fieldset>
+	</section>
+</main>
+
+{% include 'overall_footer.html' %}

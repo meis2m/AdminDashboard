@@ -1,0 +1,156 @@
+:root {
+	--bg-colour: #f9f9f9;
+	--text-colour: #313131;
+
+	--white: #ffffff;
+
+	--red: #d31141;
+	--blue: #12a3eb;
+	--green: #1b9a1b;
+	--orange: #ff6600;
+	--phpbb: #12a3eb;
+
+	--bg-phpbb: linear-gradient(45deg, #6aceff 0%, #0076b1 2px, #12a3eb, #12a3eb 100%);
+	--bg-blue-light: linear-gradient(45deg, #0288d1, #26c6da);
+	--bg-dark-blue: linear-gradient(45deg, #303f9f, #1976d2);
+	--bg-purple-indigo: linear-gradient(45deg, #6200ea, #1976d2);
+	--bg-purple-dark: linear-gradient(45deg, #7b1fa2, #7c4dff);
+	--bg-purple-orange: linear-gradient(45deg, #8e24aa, #ff6e40);
+	--bg-pink-orange: linear-gradient(45deg, #d500f9, #ffa000);
+	--bg-orange-light: linear-gradient(45deg, #bf360c, #f57c00);
+	--bg-pink-light: linear-gradient(45deg, #ff5252, #f48fb1);
+	--bg-green-cyan: linear-gradient(45deg, #43a047, #1de9b6);
+	--bg-red: #f44336;
+	--bg-purple: #9c27b0;
+	--bg-violet: #e91e63;
+	--bg-indigo: #673ab7;
+	--bg-cyan: #00bcd4;
+	--bg-teal: #009688;
+	--bg-blue: #03a9f4;
+	--bg-orange: #ff8f00;
+	--bg-white: #ffffff;
+	--bg-black: #313131;
+}
+
+html,
+body {
+	background: var(--bg-colour);
+	color: var(--text-colour);
+}
+
+.studio-sidebar {
+	background: var(--bg-purple-indigo);
+}
+
+.studio-header {
+	background: var(--white);
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.studio-logo {
+	box-shadow: 0 -4px 7px 1px rgba(0, 0, 0, 0.2);
+}
+
+.studio-logo svg {
+	fill: var(--white);
+}
+
+.studio-bg-white .studio-logo svg {
+	fill: var(--phpbb);
+}
+
+/** Menu **/
+.studio-menu {
+	box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.2);
+}
+
+.studio-menu a {
+	color: var(--white);
+}
+
+.studio-bg-white .studio-menu a {
+	color: var(--text-colour);
+}
+
+.studio-cat > a {
+	color: var(--bg-colour);
+}
+
+.studio-cat > a:hover,
+.studio-sub.active,
+.studio-sub > a:hover,
+.studio-item > a:hover {
+	background-color: rgba(0, 0, 0, 0.08);
+}
+
+.studio-sub-item.active > a,
+.studio-item.active > a {
+	background: var(--white);
+	color: var(--text-colour);
+}
+
+.studio-bg-white .studio-sub-item.active > a,
+.studio-bg-white .studio-item.active > a {
+	background: var(--phpbb);
+	color: var(--white);
+}
+
+/** Header **/
+.studio-search > i { color: rgba(255, 255, 255, 0.85); }
+.studio-search:focus-within > i,
+.studio-bg-white .studio-search > i { color: rgba(0, 0, 0, 0.75); }
+
+.studio-search > input {
+	background: rgba(230, 230, 230, 0.3);
+	border: 1px solid #efefef;
+	color: rgba(0, 0, 0, 0.87);
+}
+
+.studio-search > input:hover,
+.studio-search > input[type="text"]:hover {
+	background: rgba(230, 230, 230, 0.1);
+	border: 1px solid rgba(230, 230, 230, 0.1);
+}
+
+.studio-search > input:focus,
+.studio-search > input[type="text"]:focus {
+	background: var(--white);
+	border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.studio-search > input::placeholder { color: rgba(255, 255, 255, 0.5); }
+.studio-search > input:hover::placeholder { color: rgba(255, 255, 255, 0.75); }
+.studio-bg-white .studio-search > input::placeholder { color: unset; }
+.studio-bg-white .studio-search > input:hover::placeholder { color: unset; }
+
+/** Footer */
+#page-footer {
+	background: var(--white);
+	border-top: 1px solid #d2d2d2;
+}
+
+#page-footer .copyright a {
+	color: var(--blue);
+}
+
+/** Colours */
+.studio-bg-phpbb { background: var(--bg-phpbb) !important; }
+.studio-bg-blue-light { background: var(--bg-blue-light) !important; }
+.studio-bg-dark-blue { background: var(--bg-dark-blue) !important; }
+.studio-bg-purple-indigo { background: var(--bg-purple-indigo) !important; }
+.studio-bg-purple-dark { background: var(--bg-purple-dark) !important; }
+.studio-bg-purple-orange { background: var(--bg-purple-orange) !important; }
+.studio-bg-pink-orange { background: var(--bg-pink-orange) !important; }
+.studio-bg-orange-light { background: var(--bg-orange-light) !important; }
+.studio-bg-pink-light { background: var(--bg-pink-light) !important; }
+.studio-bg-green-cyan { background: var(--bg-green-cyan) !important; }
+.studio-bg-red { background: var(--bg-red) !important; }
+.studio-bg-purple { background: var(--bg-purple) !important; }
+.studio-bg-violet { background: var(--bg-violet) !important; }
+.studio-bg-indigo { background: var(--bg-indigo) !important; }
+.studio-bg-cyan { background: var(--bg-cyan) !important; }
+.studio-bg-teal { background: var(--bg-teal) !important; }
+.studio-bg-blue { background: var(--bg-blue) !important; }
+.studio-bg-orange { background: var(--bg-orange) !important; }
+.studio-bg-white { background: var(--bg-white) !important; }
+.studio-bg-black { background: var(--bg-black) !important; }

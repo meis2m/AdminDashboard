@@ -1,0 +1,68 @@
+parameters:
+    phpbbstudio.admindashboard.params:
+        sizes:
+            - 'small'
+            - 'medium'
+            - 'large'
+        corners:
+            - 'full'
+            - 'squared'
+            - 'rounded'
+        colours:
+            - 'phpbb'
+            - 'blue-light'
+            - 'dark-blue'
+            - 'purple-indigo'
+            - 'purple-dark'
+            - 'purple-orange'
+            - 'pink-orange'
+            - 'orange-light'
+            - 'pink-light'
+            - 'green-cyan'
+            - 'red'
+            - 'purple'
+            - 'violet'
+            - 'indigo'
+            - 'cyan'
+            - 'teal'
+            - 'blue'
+            - 'orange'
+            - 'white'
+            - 'black'
+
+services:
+    phpbbstudio.admindashboard.controller:
+        class: phpbbstudio\admindashboard\controller\admin
+        arguments:
+            - '@auth'
+            - '@template_context'
+            - '@dbal.conn'
+            - '@language'
+            - '@path_helper'
+            - '@request'
+            - '@template'
+            - '@user'
+            - '%core.table_prefix%'
+            - '%phpbbstudio.admindashboard.params%'
+
+    phpbbstudio.admindashboard.listener:
+        class: phpbbstudio\admindashboard\event\listener
+        tags: [{ name: event.listener }]
+        arguments:
+            - '@auth'
+            - '@config'
+            - '@config_text'
+            - '@dbal.conn'
+            - '@language'
+            - '@notification_manager'
+            - '@text_formatter.parser'
+            - '@text_formatter.renderer'
+            - '@request'
+            - '@template'
+            - '@user'
+            - '@text_formatter.utils'
+            - '%core.table_prefix%'
+            - '%core.adm_relative_path%'
+            - '%core.root_path%'
+            - '%core.php_ext%'
+            - '%phpbbstudio.admindashboard.params%'

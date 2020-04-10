@@ -54,7 +54,8 @@
     margin-left: 0;
 }
 
-.rtl .studio-menu-corner-rounded .studio-sub > a, .rtl .studio-menu-corner-rounded .studio-item > a {
+.rtl .studio-menu-corner-rounded .studio-sub > a, 
+.rtl .studio-menu-corner-rounded .studio-item > a {
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
     border-top-right-radius: 0;
